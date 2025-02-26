@@ -2,10 +2,17 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
-  <title>Mijn Site</title>
-  <link rel="stylesheet" href="./css/test.css">
+  <title>CSS-patroon</title>
+  <link rel="stylesheet" href="css/test.css"> <!-- Het pad naar je CSS-bestand -->
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%; /* Hierdoor kan .container met height: 100% ook werkelijk 100% vullen */
+    }
+  </style>
 </head>
 <body>
-  <h1>Welkom op mijn homepagina!</h1>
+  <div class="container"></div>
 </body>
 </html>
