@@ -1,0 +1,392 @@
+/* Basistypografie en thema-instellingen */
+:root {
+    --font-family: 'Montserrat', sans-serif;
+    /* Licht Thema Kleuren */
+    --color-bg-light: #ffffff;
+    --color-text-light: #333333;
+    --color-primary-light: #007bff;
+    --color-accent-light: #f8f9fa;
+  
+    /* Donker Thema Kleuren */
+    --color-bg-dark: #121212;
+    --color-text-dark: #ffffff;
+    --color-primary-dark: #00adb5;
+    --color-accent-dark: #222831;
+  
+    /* Overige variabelen */
+    --transition-speed: 0.3s;
+    --border-radius: 4px;
+  }
+  
+  body {
+    margin: 0;
+    font-family: var(--font-family);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+  }
+  
+  /* Lichte modus (standaard) */
+  body.light-mode {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-light);
+  }
+  
+  /* Donkere modus */
+  body.dark-mode {
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-dark);
+  }
+  
+  /* Navigatiebalk (sticky) */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background-color: var(--color-accent-light);
+    padding: 1rem;
+    transition: background-color var(--transition-speed);
+  }
+  
+  body.dark-mode .navbar {
+    background-color: var(--color-accent-dark);
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li a {
+    text-decoration: none;
+    color: var(--color-text-light);
+    transition: color var(--transition-speed);
+  }
+  
+  body.dark-mode .nav-links li a {
+    color: var(--color-text-dark);
+  }
+  
+  .nav-links li a:hover {
+    color: var(--color-primary-light);
+  }
+  
+  body.dark-mode .nav-links li a:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  /* Dark Mode Switch */
+  .toggle-theme {
+    display: flex;
+    align-items: center;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 22px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 22px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: #fff;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  input:checked + .slider {
+    background-color: var(--color-primary-light);
+  }
+  
+  body.dark-mode input:checked + .slider {
+    background-color: var(--color-primary-dark);
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(18px);
+  }
+  
+  /* Hero (Home) sectie */
+  .hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 600px;
+  }
+  
+  .hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .hero-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  /* Over Mij sectie */
+  .about-section {
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .about-section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .about-section p {
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+  
+  .skills-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+  }
+  
+  .skills-list li {
+    background-color: var(--color-accent-light);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    transition: background-color var(--transition-speed);
+  }
+  
+  body.dark-mode .skills-list li {
+    background-color: var(--color-accent-dark);
+  }
+  
+  /* Portfolio sectie */
+  .portfolio-section {
+    padding: 4rem 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .portfolio-section h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .projects-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  .project-card {
+    background-color: var(--color-accent-light);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    transition: transform var(--transition-speed);
+    text-align: left;
+  }
+  
+  body.dark-mode .project-card {
+    background-color: var(--color-accent-dark);
+  }
+  
+  .project-card img {
+    width: 100%;
+    border-radius: var(--border-radius);
+  }
+  
+  .project-card h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .project-card p {
+    margin-bottom: 1rem;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .btn-project {
+    text-decoration: none;
+    color: var(--color-primary-light);
+    font-weight: 700;
+  }
+  
+  body.dark-mode .btn-project {
+    color: var(--color-primary-dark);
+  }
+  
+  /* Contact sectie */
+  .contact-section {
+    padding: 4rem 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .contact-section h2 {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-section p {
+    margin-bottom: 2rem;
+  }
+  
+  .form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-family);
+    transition: border-color var(--transition-speed);
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: var(--color-primary-light);
+  }
+  
+  body.dark-mode .form-group input,
+  body.dark-mode .form-group textarea {
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .btn-submit {
+    background-color: var(--color-primary-light);
+    color: #fff;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+  }
+  
+  .btn-submit:hover {
+    background-color: #0056b3; /* Donkerdere tint */
+  }
+  
+  body.dark-mode .btn-submit {
+    background-color: var(--color-primary-dark);
+  }
+  
+  /* Voettekst */
+  .footer-section {
+    background-color: var(--color-accent-light);
+    padding: 1rem;
+    text-align: center;
+    transition: background-color var(--transition-speed);
+  }
+  
+  body.dark-mode .footer-section {
+    background-color: var(--color-accent-dark);
+  }
+  
+  .footer-section p {
+    margin: 0.5rem 0;
+  }
+  
+  .social-links a {
+    margin: 0 0.5rem;
+    color: var(--color-text-light);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+  }
+  
+  body.dark-mode .social-links a {
+    color: var(--color-text-dark);
+  }
+  
+  .social-links a:hover {
+    color: var(--color-primary-light);
+  }
+  
+  body.dark-mode .social-links a:hover {
+    color: var(--color-primary-dark);
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #007bff; /* of een andere primaire kleur */
+    border-radius: 4px;
+    transition: background-color 0.3s;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* iets donkerder tint */
+  }
+  
+  /* Responsive uitlijning of extra styling kan hier */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none; /* Je kunt hier een mobiel menu van maken indien nodig */
+    }
+  }
+  
